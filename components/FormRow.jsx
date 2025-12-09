@@ -10,7 +10,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
                 value={value}
                 name={name}
                 onChange={handleChange}
-                className='w-full p-2 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200'
+                className='w-full p-[10px] border border-[#ccc] rounded-[6px] bg-[#ffffff] text-[#000000] placeholder:text-[#888] placeholder:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200'
             />
         </div>
     );
