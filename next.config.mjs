@@ -10,6 +10,7 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
+    serverExternalPackages: ['pdf-parse'],
     typescript: {
         ignoreBuildErrors: true,
     },
