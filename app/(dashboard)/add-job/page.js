@@ -9,7 +9,7 @@ import { FaBriefcase, FaBuilding, FaMapMarkerAlt, FaMagic, FaSave } from "react-
 
 const AddJobPage = () => {
     const router = useRouter();
-    const { data: session, status } = useSession();
+    const { status } = useSession();
     const [loading, setLoading] = useState(false);
 
     // Form State
@@ -50,7 +50,8 @@ const AddJobPage = () => {
             } else {
                 toast.error("Failed to scrape. Try filling manually.");
             }
-        } catch (e) {
+        } catch (error) {
+            console.error(error);
             toast.error("Scraping error");
         } finally {
             setScraping(false);
@@ -241,9 +242,10 @@ const AddJobPage = () => {
                                 onChange={handleChange}
                                 className="w-full p-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition"
                             >
-                                <option value="Pending">Pending</option>
+                                <option value="Pending">Pending (Applied)</option>
                                 <option value="Interview">Interview</option>
                                 <option value="Declined">Declined</option>
+                                <option value="Offer">Offer</option>
                             </select>
                         </div>
 

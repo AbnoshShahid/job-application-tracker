@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
 // GET: Fetch all jobs for the logged-in user
-export async function GET(req) {
+export async function GET() {
     try {
         const session = await getServerSession(authOptions);
 

@@ -13,7 +13,6 @@ export async function POST(req) {
         }
 
         await dbConnect();
-        console.log("MongoDB connected successfully");
 
         const userExists = await User.findOne({ email });
 
@@ -32,6 +31,6 @@ export async function POST(req) {
         return NextResponse.json({ message: "User created" }, { status: 201 });
     } catch (error) {
         console.error("Registration error:", error);
-        return NextResponse.json({ message: "Error creating user", error: error.message }, { status: 500 });
+        return NextResponse.json({ message: error.message }, { status: 500 });
     }
 }

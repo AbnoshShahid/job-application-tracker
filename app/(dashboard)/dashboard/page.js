@@ -27,7 +27,7 @@ const DashboardPage = () => {
             if (data.success) {
                 setJobs(data.jobs);
             }
-        } catch (error) {
+        } catch {
             console.error("Failed to fetch jobs");
         } finally {
             setLoading(false);
@@ -118,7 +118,7 @@ const DashboardPage = () => {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <Link href={`/job/${job._id}`} className="text-blue-600 hover:text-blue-800 text-sm font-medium">Details</Link>
+                                            <Link href={`/jobs/${job._id}`} className="text-blue-600 hover:text-blue-800 text-sm font-medium">Details</Link>
                                         </td>
                                     </tr>
                                 ))}

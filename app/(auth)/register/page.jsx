@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -40,17 +39,25 @@ const Register = () => {
             });
 
             if (res.ok) {
-                toast.success("Account created! Redirecting...");
+                toast.success("Account created! Logging in...");
+
                 // Automatically login after register
-                await signIn("credentials", {
+                const signInRes = await signIn("credentials", {
                     email,
                     password,
                     redirect: false,
                 });
-                router.push("/dashboard");
+
+                if (signInRes?.ok) {
+                    router.push("/dashboard");
+                } else {
+                    console.error("Auto-login failed:", signInRes?.error);
+                    toast.error("Login failed. Please log in manually.");
+                    router.push("/login");
+                }
             } else {
-                const error = await res.json();
-                toast.error(error.message);
+                const errorData = await res.json();
+                toast.error(errorData.message || "Unknown error occurred");
             }
         } catch (error) {
             toast.error("Something went wrong");

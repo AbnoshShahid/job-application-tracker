@@ -2,8 +2,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Link from "next/link";
-import ClientLayout from "@/components/ClientLayout";
+
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -22,9 +21,7 @@ export default async function RootLayout({ children }) {
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.className} bg-[#0f0f12] text-gray-200`}>
                 <Providers session={session}>
-                    <ClientLayout>
-                        {children}
-                    </ClientLayout>
+                    {children}
                 </Providers>
             </body>
         </html>
