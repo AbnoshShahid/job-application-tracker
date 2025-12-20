@@ -64,9 +64,9 @@ export async function POST(req) {
         // Handle resume data if present
         if (resumeData) {
             jobData.resumeData = resumeData;
-            jobData.source = { type: 'resume' };
+            jobData.source = { method: 'resume' };
         } else {
-            jobData.source = { type: 'manual' };
+            jobData.source = { method: 'manual' };
         }
 
         const job = await Job.create(jobData);

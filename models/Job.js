@@ -59,7 +59,11 @@ const JobSchema = new mongoose.Schema({
         }
     },
     source: {
-        type: String, // 'manual', 'scraped', 'resume'
+        method: {
+            type: String,
+            enum: ['manual', 'scraped', 'resume'],
+            default: 'manual'
+        },
         url: String, // for scraped jobs
     },
     createdBy: {
